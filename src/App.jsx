@@ -59,7 +59,7 @@ function App() {
     };
 
     console.log(newTodo);
-    setTodoList([newTodo, ...App]);
+    setTodoList([newTodo, ...todoList]);
     setInput("");
   }
 
@@ -86,7 +86,10 @@ function App() {
             placeholder="할 일을 입력하세요"
             className="flex-1 border p-1 rounded border-gray-300 focus:outline-none "
           />
-          <button className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+          <button
+            onClick={addTodo}
+            className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+          >
             추가
           </button>
         </div>
