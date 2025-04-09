@@ -74,9 +74,35 @@ function App() {
 
   return (
     <>
-      <div>
-        <h1>TODO app</h1>
-        <div></div>
+      <div className="p-4 border w-[500px] m-auto mt-12">
+        <h1 className="text-2xl font-bold mb-4 text-center">TODO app</h1>
+        <div className="flex gap-2">
+          <input
+            type="text"
+            onChange={(e) => {
+              setInput(e.target.value);
+            }}
+            value={input}
+            placeholder="할 일을 입력하세요"
+            className="flex-1 border p-1 rounded border-gray-300 focus:outline-none "
+          />
+          <button className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+            추가
+          </button>
+        </div>
+        <ul className="py-2">
+          {todoList.map((item, i) => {
+            return (
+              <>
+                <TodoItem
+                  item={todoList[i]}
+                  toggleTodo={toggleTodo}
+                  deleteTodo={deleteTodo}
+                ></TodoItem>
+              </>
+            );
+          })}
+        </ul>
       </div>
     </>
   );
